@@ -60,8 +60,9 @@ def admet_predict(
 
     # Save predictions
     if save_path is None:
-        save_path = data_path
+        save_path = Path(data_path)
 
+    save_path = Path(save_path)
     save_path.parent.mkdir(parents=True, exist_ok=True)
     data_with_preds.to_csv(save_path, index_label=smiles_column)
 
